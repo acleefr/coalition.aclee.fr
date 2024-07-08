@@ -1,0 +1,31 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+#parties {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#parties label {
+    display: block;
+    margin: 5px;
+}
+
+#results {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#hemicycle {
+    margin: 0 auto;
+    max-width: 600px;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulateur de Coalition</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Simulateur de Coalition</h1>
+    <div id="parties">
+        <label><input type="checkbox" data-seats="78" data-color="#FF5733"> La France insoumise (78)</label>
+        <label><input type="checkbox" data-seats="9" data-color="#C70039"> Parti communiste français (9)</label>
+        <label><input type="checkbox" data-seats="28" data-color="#900C3F"> Les Écologistes (28)</label>
+        <label><input type="checkbox" data-seats="69" data-color="#581845"> Parti socialiste (69)</label>
+        <label><input type="checkbox" data-seats="10" data-color="#FFC300"> Divers gauche (10)</label>
+        <label><input type="checkbox" data-seats="5" data-color="#FF5733"> Divers centre (5)</label>
+        <label><input type="checkbox" data-seats="33" data-color="#C70039"> Modem (33)</label>
+        <label><input type="checkbox" data-seats="99" data-color="#900C3F"> Ensemble ! (99)</label>
+        <label><input type="checkbox" data-seats="26" data-color="#581845"> Horizons (26)</label>
+        <label><input type="checkbox" data-seats="3" data-color="#FFC300"> Union des Démocrates et Indépendants (3)</label>
+        <label><input type="checkbox" data-seats="39" data-color="#FF5733"> Les Républicains (39)</label>
+        <label><input type="checkbox" data-seats="26" data-color="#C70039"> Divers droite (26)</label>
+        <label><input type="checkbox" data-seats="17" data-color="#900C3F"> LR-RN (17)</label>
+        <label><input type="checkbox" data-seats="125" data-color="#581845"> Rassemblement National (125)</label>
+        <label><input type="checkbox" data-seats="1" data-color="#FFC300"> Extrême droite (1)</label>
+        <label><input type="checkbox" data-seats="9" data-color="#FF5733"> Régionaliste (9)</label>
+    </div>
+    <div id="results">
+        <h2>Résultats de la Coalition</h2>
+        <p>Total des sièges: <span id="total-seats">0</span></p>
+        <p>Majorité Absolue: <span id="majority-status">Non</span></p>
+    </div>
+    <div id="hemicycle"></div>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>
