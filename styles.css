@@ -1,6 +1,7 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 20px;
+    background-color: #f3f3f3; /* Cream background */
 }
 
 h1 {
@@ -28,4 +29,53 @@ h1 {
 #hemicycle {
     margin: 0 auto;
     max-width: 600px;
+}
+
+/* Styling for Buy Me a Coffee button */
+#buy-me-a-coffee {
+    text-align: center;
+    margin-top: 20px;
+    background-color: #f3f3f3; /* Cream background */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+}
+
+#bmc-button {
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+#created-by {
+    font-size: 14px;
+    color: #666;
+    margin-top: 10px; /* Add spacing between button and text */
+}
+
+#created-by a {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Custom colors for political parties */
+#parties label:nth-child(1) input[type="checkbox"]:checked + span {
+    color: brown; /* Right wing (Extreme) */
+}
+
+#parties label:nth-child(2) input[type="checkbox"]:checked + span {
+    color: red; /* Left wing */
+}
+
+#parties label:nth-child(3) input[type="checkbox"]:checked + span {
+    color: blue; /* Right wing */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #parties {
+        flex-direction: column;
+        align-items: center;
+    }
 }
