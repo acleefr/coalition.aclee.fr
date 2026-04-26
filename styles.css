@@ -1,45 +1,50 @@
 body {
     font-family: 'Arial', sans-serif;
-    margin: 20px;
-    background-color: #f3f3f3; /* Cream background */
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
 }
 
 h1 {
     text-align: center;
+    margin-top: 20px;
 }
 
 #parties {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
     justify-content: center;
+    gap: 10px;
     margin-bottom: 20px;
 }
 
 #parties label {
     display: block;
     margin: 5px;
+    cursor: pointer;
 }
 
 #results {
     text-align: center;
-    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 #hemicycle {
     margin: 0 auto;
     max-width: 600px;
+    background-color: #f0f0f0;
+    border-radius: 50%;
+    padding: 20px;
+    position: relative;
 }
 
-/* Styling for Buy Me a Coffee button */
 #buy-me-a-coffee {
     text-align: center;
     margin-top: 20px;
-    background-color: #f3f3f3; /* Cream background */
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    font-family: 'Arial', sans-serif;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 #bmc-button {
@@ -49,33 +54,24 @@ h1 {
 
 #created-by {
     font-size: 14px;
-    color: #666;
-    margin-top: 10px; /* Add spacing between button and text */
+    color: #888;
+    margin-top: 10px;
 }
 
 #created-by a {
-    color: #333;
+    color: #555;
     text-decoration: none;
     font-weight: bold;
 }
 
-/* Custom colors for political parties */
-#parties label:nth-child(1) input[type="checkbox"]:checked + span {
-    color: brown; /* Right wing (Extreme) */
+.arc {
+    cursor: pointer;
 }
 
-#parties label:nth-child(2) input[type="checkbox"]:checked + span {
-    color: red; /* Left wing */
-}
-
-#parties label:nth-child(3) input[type="checkbox"]:checked + span {
-    color: blue; /* Right wing */
-}
-
-/* Responsive adjustments */
 @media (max-width: 768px) {
     #parties {
         flex-direction: column;
         align-items: center;
     }
 }
+

@@ -59,7 +59,9 @@ function updateResults() {
         .attr("transform", "translate(300, 150)")
         .merge(arcs)
         .attr("d", arc)
-        .attr("fill", d => d.color);
+        .attr("fill", d => d.color)
+        .attr("stroke", "#fff")
+        .attr("stroke-width", 2);
 
     arcs.exit().remove();
 }
