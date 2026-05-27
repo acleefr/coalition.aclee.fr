@@ -1,77 +1,271 @@
-body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f5f5f5;
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #f0f2f8;
+  --surface: #ffffff;
+  --border: #e0e3ef;
+  --text: #1a1a2e;
+  --muted: #666;
+  --radius: 12px;
 }
 
-h1 {
-    text-align: center;
-    margin-top: 20px;
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+header {
+  text-align: center;
+  padding: 28px 20px 16px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 1px 4px rgba(0,0,0,.06);
+}
+header h1 {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.subtitle {
+  color: var(--muted);
+  font-size: .9rem;
+  margin-top: 4px;
+}
+
+/* Layout */
+main { flex: 1; }
+#layout {
+  display: flex;
+  gap: 0;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 16px;
+  align-items: flex-start;
+}
+
+/* Parties panel */
+#parties-panel {
+  width: 300px;
+  flex-shrink: 0;
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,.05);
 }
 
 #parties {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 20px;
+  padding: 8px 0;
 }
 
-#parties label {
-    display: block;
-    margin: 5px;
-    cursor: pointer;
+.bloc-group {
+  border-bottom: 1px solid var(--border);
+}
+.bloc-group:last-child { border-bottom: none; }
+
+.bloc-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px 8px;
+  background: #fafbff;
+  border-bottom: 1px solid var(--border);
+}
+.bloc-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.bloc-label {
+  font-weight: 600;
+  font-size: .82rem;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  flex: 1;
+  color: var(--text);
+}
+.bloc-toggle {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  width: 22px;
+  height: 22px;
+  font-size: .9rem;
+  cursor: pointer;
+  line-height: 1;
+  color: var(--muted);
+  transition: background .15s, color .15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bloc-toggle:hover { background: #eef; color: var(--text); }
+
+.bloc-items { padding: 4px 0; }
+
+.party-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  cursor: pointer;
+  font-size: .88rem;
+  transition: background .1s;
+  user-select: none;
+}
+.party-label:hover { background: #f5f7ff; }
+
+.party-label input[type="checkbox"] {
+  width: 15px;
+  height: 15px;
+  accent-color: #1565C0;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.color-swatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  flex-shrink: 0;
+  border: 1px solid rgba(0,0,0,.12);
+}
+.party-name { flex: 1; color: var(--text); }
+.party-seats {
+  font-variant-numeric: tabular-nums;
+  font-size: .82rem;
+  color: var(--muted);
+  min-width: 28px;
+  text-align: right;
 }
 
-#results {
-    text-align: center;
-    margin-bottom: 20px;
+/* Viz panel */
+#viz-panel {
+  flex: 1;
+  min-width: 0;
+  padding-left: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 #hemicycle {
-    margin: 0 auto;
-    max-width: 600px;
-    background-color: #f0f0f0;
-    border-radius: 50%;
-    padding: 20px;
-    position: relative;
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 16px 16px 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.05);
+}
+#hemicycle svg {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
-#buy-me-a-coffee {
-    text-align: center;
-    margin-top: 20px;
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
+/* Results */
+#results {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 20px 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.05);
 }
 
-#bmc-button {
-    display: inline-block;
-    margin-bottom: 10px;
+#result-row {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 18px;
+}
+.result-block {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.result-number {
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+.result-label {
+  font-size: .8rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+.has-majority { color: #2E7D32; }
+.no-majority  { color: #C62828; }
+
+/* Progress bar */
+#progress-bar {
+  position: relative;
+  background: #e8eaf6;
+  border-radius: 6px;
+  height: 10px;
+  overflow: visible;
+}
+#progress-fill {
+  height: 100%;
+  border-radius: 6px;
+  background: #1565C0;
+  transition: width .35s ease, background .35s ease;
+  max-width: 100%;
+}
+#progress-track-marker {
+  position: absolute;
+  top: -4px;
+  width: 2px;
+  height: 18px;
+  background: #333;
+  border-radius: 1px;
+  transform: translateX(-50%);
+}
+#progress-label {
+  margin-top: 7px;
+  font-size: .82rem;
+  color: var(--muted);
 }
 
-#created-by {
-    font-size: 14px;
-    color: #888;
-    margin-top: 10px;
+/* Tooltip */
+.arc-tooltip {
+  display: none;
+  position: fixed;
+  pointer-events: none;
+  background: rgba(10, 10, 30, .88);
+  color: #fff;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: .84rem;
+  line-height: 1.5;
+  z-index: 9999;
+  white-space: nowrap;
+  backdrop-filter: blur(4px);
 }
 
-#created-by a {
-    color: #555;
-    text-decoration: none;
-    font-weight: bold;
+/* Footer */
+footer {
+  text-align: center;
+  padding: 16px;
+  font-size: .8rem;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  background: var(--surface);
 }
+footer a { color: #555; font-weight: 600; text-decoration: none; }
+footer a:hover { text-decoration: underline; }
 
-.arc {
-    cursor: pointer;
+/* Responsive */
+@media (max-width: 720px) {
+  #layout {
+    flex-direction: column;
+    padding: 12px;
+    gap: 16px;
+  }
+  #parties-panel { width: 100%; }
+  #viz-panel { padding-left: 0; }
 }
-
-@media (max-width: 768px) {
-    #parties {
-        flex-direction: column;
-        align-items: center;
-    }
-}
-
